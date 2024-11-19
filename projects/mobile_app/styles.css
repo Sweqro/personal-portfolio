@@ -1,0 +1,342 @@
+/* Global Styles */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --light-gray: #f3f4f6;
+    --dark-gray: #4b5563;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Phone Frame */
+.phone-frame {
+    background: white;
+    width: 375px;
+    height: 812px;
+    border-radius: 40px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+/* App Container */
+.app-container {
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.user-profile .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Categories */
+.categories {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--light-gray);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.category.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Task List */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-priority {
+    padding-top: 3px;
+}
+
+.priority-indicator {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e5e7eb;
+}
+
+.task-item[data-priority="high"] .priority-indicator {
+    background: #ef4444;
+}
+
+.task-item[data-priority="medium"] .priority-indicator {
+    background: #f59e0b;
+}
+
+.task-item[data-priority="low"] .priority-indicator {
+    background: #10b981;
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    font-size: 0.875rem;
+    color: var(--dark-gray);
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.task-item:hover .task-actions {
+    opacity: 1;
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    padding: 4px;
+    color: var(--dark-gray);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.task-actions button:hover {
+    color: var(--primary-color);
+}
+
+.task-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+}
+
+.task-text {
+    flex: 1;
+    font-size: 16px;
+}
+
+.task-date {
+    font-size: 14px;
+    color: var(--dark-gray);
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: var(--dark-gray);
+}
+
+/* Priority Menu */
+.priority-menu {
+    position: fixed;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    z-index: 1000;
+}
+
+.priority-menu button {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.priority-menu button:hover {
+    background-color: var(--light-gray);
+}
+
+/* Date Picker */
+.date-picker {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    z-index: 1000;
+    width: 90%;
+    max-width: 320px;
+}
+
+.date-picker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.close-picker {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--dark-gray);
+    cursor: pointer;
+}
+
+.date-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.quick-dates {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.quick-dates button {
+    padding: 8px;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-dates button:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Task Text Editing */
+.task-text[contenteditable="true"]:focus {
+    outline: none;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 2px;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-item {
+    animation: slideIn 0.3s ease forwards;
+}
+
+/* Add Task Button */
+.add-task-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.add-task-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-gray);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dark-gray);
+    border-radius: 3px;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    .phone-frame {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+}

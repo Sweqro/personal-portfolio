@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager App - Mobile Prototype</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="app-container">
+            <!-- Header -->
+            <header>
+                <h1>Tasks</h1>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="Profile" class="avatar">
+                </div>
+            </header>
+
+            <!-- Task Categories -->
+            <div class="categories">
+                <div class="category active">
+                    <i class="fas fa-inbox"></i>
+                    <span>All Tasks</span>
+                </div>
+                <div class="category">
+                    <i class="fas fa-star"></i>
+                    <span>Important</span>
+                </div>
+                <div class="category">
+                    <i class="fas fa-calendar"></i>
+                    <span>Scheduled</span>
+                </div>
+            </div>
+
+            <!-- Task List -->
+            <div class="task-list">
+                <div class="task-item" data-priority="high">
+                    <div class="task-priority">
+                        <span class="priority-indicator"></span>
+                    </div>
+                    <input type="checkbox">
+                    <div class="task-content">
+                        <span class="task-text" contenteditable="true">Complete portfolio design</span>
+                        <div class="task-meta">
+                            <span class="task-date">Today</span>
+                            <div class="task-actions">
+                                <button class="priority-btn" title="Set Priority">
+                                    <i class="fas fa-flag"></i>
+                                </button>
+                                <button class="date-btn" title="Set Due Date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </button>
+                                <button class="delete-btn" title="Delete Task">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-item" data-priority="medium">
+                    <div class="task-priority">
+                        <span class="priority-indicator"></span>
+                    </div>
+                    <input type="checkbox">
+                    <div class="task-content">
+                        <span class="task-text" contenteditable="true">Meeting with client</span>
+                        <div class="task-meta">
+                            <span class="task-date">Tomorrow</span>
+                            <div class="task-actions">
+                                <button class="priority-btn" title="Set Priority">
+                                    <i class="fas fa-flag"></i>
+                                </button>
+                                <button class="date-btn" title="Set Due Date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </button>
+                                <button class="delete-btn" title="Delete Task">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-priority">
+                        <span class="priority-indicator"></span>
+                    </div>
+                    <input type="checkbox">
+                    <div class="task-content">
+                        <span class="task-text" contenteditable="true">Update project documentation</span>
+                        <div class="task-meta">
+                            <span class="task-date">Next Week</span>
+                            <div class="task-actions">
+                                <button class="priority-btn" title="Set Priority">
+                                    <i class="fas fa-flag"></i>
+                                </button>
+                                <button class="date-btn" title="Set Due Date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </button>
+                                <button class="delete-btn" title="Delete Task">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Task Button -->
+            <button class="add-task-btn">
+                <i class="fas fa-plus"></i>
+            </button>
+
+            <!-- Priority Menu (Hidden by default) -->
+            <div class="priority-menu" style="display: none;">
+                <button data-priority="high">High Priority</button>
+                <button data-priority="medium">Medium Priority</button>
+                <button data-priority="low">Low Priority</button>
+            </div>
+
+            <!-- Date Picker (Hidden by default) -->
+            <div class="date-picker" style="display: none;">
+                <div class="date-picker-header">
+                    <button class="close-picker">&times;</button>
+                    <h3>Set Due Date</h3>
+                </div>
+                <input type="date" class="date-input">
+                <div class="quick-dates">
+                    <button data-date="today">Today</button>
+                    <button data-date="tomorrow">Tomorrow</button>
+                    <button data-date="next-week">Next Week</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
